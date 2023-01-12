@@ -1,0 +1,40 @@
+body {
+  @extend %rubik-400;
+  font-size: 20px;
+  color: $dark;
+  background-color: $bg-color;
+}
+
+section {
+  margin-bottom: 120px;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+p {
+  @extend %rubik-400;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+button {
+  padding: 12px 32px;
+  @extend %rubik-400;
+  font-size: 18px;
+  line-height: 130%;
+  letter-spacing: 0.03em;
+  border-radius: 6px;
+  background-color: $orange;
+  color: #fff;
+}
+
+.title {
+  @extend %rubik-500;
+  font-size: 36px;
+  line-height: 130%;
+}

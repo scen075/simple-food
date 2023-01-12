@@ -1,13 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
   <link rel="stylesheet" href="css/style.min.css">
-  <title>Document</title>
+  
+  <title>Simple Food</title>
 </head>
 <body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a href="#" class="logo">
+          <img class="logo__img" src="images/logo.svg" alt="logo">
+        </a>
+        <div class="header__left">
+          <nav class="menu">
+            <ul class="menu__list">
+              <li class="menu__item">
+                <a class="menu__link menu__link--active" href="#">Главная</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#">Блюда</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+          <ul class="user-nav">
+            <li class="user-nav__item user-nav__item--search">
+              <span class="sr-only">поиск по сайту</span>
+            </li>
+            <li class="user-nav__item user-nav__item--cart">
+              <span class="sr-only">корзина товаров</span>
+              <span>4</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <h1 class="hero__title">
+          Доставка <span>за 15 минут</span>
+        </h1>
+        <p class="hero__text">
+          Самый быстрый сервис доставки еды в вашем городе. Не уложимся в срок - доставка за наш счёт
+        </p>
+        <button class="hero__btn" type="button">
+          Заказать
+        </button>
+        <a class="hero__link" href="#">
+          Подробнее
+        </a>
+      </div>
+    </div>
+  </section>
+
   
   <script src="js/main.min.js"></script>
 </body>

@@ -1,9 +1,136 @@
-@import 'vars';
 @import 'fonts';
+@import 'vars';
 @import 'reset';
 @import 'global';
 
+.header{
+  padding: 60px 0;
+  font-size: 16px;
 
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__left {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+
+.logo {
+  align-self: flex-start;
+  display: block;
+  
+  &__img {
+    height: 39px;
+    width: 200px;
+  }
+}
+
+.menu {
+  margin-right: 62px;
+  @extend %rubik-400;
+  font-size: 18px;
+
+  &__list {
+    display: flex;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 45px;
+  }
+
+  &__link--active {
+    color: $orange;
+  }
+}
+
+.user-nav {
+  display: flex;
+
+  &__item {
+    width: 21px;
+    height: 21px;
+    display: block;
+    @extend %background;
+    background-size: contain;
+    background-position: center left;
+
+    &:not(:last-child) {
+      margin-right: 35px;
+    }
+  }
+
+  &__item--search {
+    background-image: url("../images/icons/search.svg");
+  }
+
+  &__item--cart {
+    width: 30px;
+    padding-right: 8px;
+    position: relative;
+    padding-top: 7px;
+    background-image: url("../images/icons/cart.svg");
+
+    span {
+      height: 14px;
+      width: 14px;
+      border-radius: 50%;
+      background-color: $orange;
+      text-align: center;
+      display: block;
+      @extend %rubik-400;
+      font-size: 10px;
+      color: #fff;
+      position: absolute;
+      right: 13px;
+      top: -4px;
+      transform: translateX(79%);
+    } 
+  }
+}
+
+.hero {
+  height: 660px;
+  background-image: url('../images/hero-bg.png');
+  background-size: contain;
+  background-position: 73%;
+  @extend %background;
+  padding-top: 8%;
+
+  &__inner {
+    max-width: 450px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    @extend %rubik-500;
+    font-size: 66px;
+    line-height: 130%;
+    margin-bottom: 20px;
+    
+    span {
+      color: $orange;
+    }
+  }
+
+  &__text {
+    margin-bottom: 20px;
+  }
+
+  &__btn {
+    margin-right: 35px;
+  }
+
+  &__link {
+    @extend %rubik-400;
+    font-size: 20px;
+    line-height: 150%;
+  }
+
+}
 
 @import 'media';
 
