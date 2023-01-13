@@ -1,0 +1,65 @@
+$orange: #ff6838;
+$lite-orange: #FFF2ED;
+$silver-100: #f9faff;
+$silver-200: #ececec;
+$gray: #c2c2c2;
+$dark-blue: #363853;
+$dark: #31352b;
+$bg-color: #F9FAFF;
+$white: #fff;
+
+%rubik-300 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+}
+
+%rubik-400 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+}
+
+%rubik-500 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+}
+
+%medium-40 {
+  @extend %rubik-500;
+  font-size: 32px;
+  line-height: 140%;
+}
+
+%regular-30 {
+  @extend %rubik-400;
+  font-size: 30px;
+  line-height: 140%;
+}
+
+%paragraph-14 {
+  @extend %rubik-400;
+  font-size: 14px;
+  line-height: 140%;
+}
+
+%paragraph-16 {
+  @extend %rubik-400;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+%text-bold {
+  @extend %rubik-500;
+  font-size: 18px;
+  line-height: 140%;
+}
+
+%background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+%pseudo {
+  content: "";
+  position: absolute;
+}
