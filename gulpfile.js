@@ -6,7 +6,9 @@ const imagemin = require('gulp-imagemin');
 const uglify = require('gulp-uglify');
 const del = require('del');
 const browserSync = require('browser-sync').create();
-
+const svgSprite = require('gulp-svg-sprite');
+const replace = require('gulp-replace');
+const cheerio = require('gulp-cheerio');
 
 
 function browsersync() {  //функция которая обновляет html
@@ -33,6 +35,7 @@ function styles() {  //функция для конвентирования cscc
 function scripts() {
   return src([
     'node_modules/jquery/dist/jquery.js',
+    'node_modules/slick-carousel/slick/slick.js',
     'app/js/main.js'  //выбираем файлы js 
   ])
   .pipe(concat('main.min.js'))  //переименовываем
@@ -74,8 +77,32 @@ function wathing() {  //функция которая автоматически
   watch(['app/scss/**/*.scss'], styles);  //выбираем за кем следить || ** - пересматриваем все папки , * все файлы
   watch(['app/**/*.js', '!app/js/main.min.js'], scripts)  //обновляем скрипты
   watch(['app/**/*.html']).on('change', browserSync.reload)  //обновляем html
+  watch(['app/images/icons/*.svg'], svgSprites);
 }
 
+function svgSprites() {
+  return src('app/images/icons/*.svg') 
+  .pipe(cheerio({
+        run: ($) => {
+            $("[fill]").removeAttr("fill"); 
+            $("[stroke]").removeAttr("stroke"); 
+            $("[style]").removeAttr("style"); 
+        },
+        parserOptions: { xmlMode: true },
+      })
+  )
+	.pipe(replace('&gt;','>')) // боремся с заменой символа 
+	.pipe(
+	      svgSprite({
+	        mode: {
+	          stack: {
+	            sprite: '../sprite.svg', 
+	          },
+	        },
+	      })
+	    )
+	.pipe(dest('app/images')); 
+}
 
 exports.styles = styles;
 exports.scripts = scripts;
@@ -84,5 +111,6 @@ exports.browsersync = browsersync;
 exports.cleanDist = cleanDist;
 exports.wathing = wathing;
 exports.build = series(cleanDist, images, build);
+exports.svgSprites = svgSprites;
 
-exports.default = parallel(styles, scripts, browsersync, wathing)
+exports.default = parallel(svgSprites, styles, scripts, browsersync, wathing)
