@@ -1,8 +1,11 @@
+@import 'mixin';
+
 body {
   @extend %rubik-400;
   font-size: 20px;
   color: $dark;
   background-color: $bg-color;
+  min-height: 100vh;
 }
 
 .sr-only {
@@ -32,6 +35,7 @@ body {
   &__img {
     height: 39px;
     width: 200px;
+    object-fit: contain;
   }
 
   &:focus {
@@ -44,6 +48,11 @@ body {
 
   &:active {
     opacity: 0.5;
+  }
+
+  @include r($phone) {
+    width: 115px;
+    height: 40px;
   }
 }
 
@@ -87,6 +96,15 @@ p {
     background-color: $lite-orange;
     color: $orange
   }
+
+  @include r($tablet) {
+    padding: 10px 24px;
+  }
+
+  @include r($phone) {
+    font-size: 14px;
+    padding: 8px 24px;
+  }
 }
 
 .link {
@@ -104,51 +122,40 @@ p {
   &:active {
     text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
   }
+
+  @include r($tablet) {
+    font-size: 18px;
+    padding: 10px 0;
+
+  }
+
+  @include r($phone) {
+    font-size: 16px;
+  }
 }
 
 .section {
   padding: 60px 0;
+
+  @include r($tablet) {
+    padding: 35px 0;
+  }
+
+  @include r($phone) {
+    padding: 20px 0;
+  }
 }
 
 .title {
   @extend %rubik-500;
   font-size: 36px;
   line-height: 130%;
-  margin-bottom: 45px;
-}
 
-.product-card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  &__img {
-    margin: 0 auto;
-    margin-bottom: 10px;
-    width: 140px;
-    height: 140px;
+  @include r($tablet) {
+    font-size: 30px;
   }
 
-  &__name {
-    font-size: 15px;
-    line-height: 120%;
-    margin-bottom: 10px;
-  }
-
-  &__price {
-    @extend %text-bold;
-    font-size: 15px;
-    margin-bottom: 10px;
-    width: 100%;
-    margin-top: auto;
-  }
-
-  &__btn {
-    display: block;
-    font-size: 14px;
-    padding: 7px 16px;
-    letter-spacing: normal;
-    margin: 0 auto;
+  @include r($phone) {
+    font-size: 24px;
   }
 }

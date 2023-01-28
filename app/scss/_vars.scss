@@ -7,6 +7,10 @@ $dark-blue: #363853;
 $dark: #31352b;
 $bg-color: #F9FAFF;
 $white: #fff;
+$phone: 576;
+$tablet: 768;
+$tablet-2: 992;
+$desktop: 1200;
 
 %rubik-300 {
   font-family: "Rubik", sans-serif;
@@ -63,4 +67,3 @@ $white: #fff;
   content: "";
   position: absolute;
 }
-
