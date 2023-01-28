@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "browser-sync": "^2.27.11",
+    "gulp-file-include": "^2.3.0",
     "jquery": "^3.6.3"
   }
 }
