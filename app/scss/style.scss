@@ -14,7 +14,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -290,6 +290,7 @@
       right: 0;
       top: auto;
       bottom: auto;
+      background-size: 90%;
     }
 
     @include r($tablet) {
@@ -322,8 +323,10 @@
     display: flex;
     margin-top: -5px;
     margin-bottom: 40px;
+    padding-top: 5px;
+    padding-bottom: 10px;
     overflow-x: auto;
-    padding: 5px 0;
+    scroll-snap-type: x mandatory;
 
     @include r($tablet) {
       margin-bottom: 30px;
@@ -331,6 +334,7 @@
   }
 
   &__list-item {
+    scroll-snap-align: end;
 
     &:not(:last-child) {
       margin-right: 20px;
@@ -438,24 +442,7 @@
 
     @include r($phone) {
       grid-template-columns: 1fr 1fr;
-      gap: 5px;
-    }
-  }
-
-  &__item {
-    max-width: 210px;
-    padding: 20px 15px;
-    background-color: $white;
-    box-shadow: 0 0 0 1px $silver-200;
-    border-radius: 5px;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: 0 0 0 1px $orange;
-    }
-
-    @include r($tablet) {
-      padding: 20px 15px;
+      gap: 10px 5px;
     }
   }
 
@@ -477,9 +464,23 @@
 
 .product-card {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #fff;
+  padding: 20px 15px;
+  box-shadow: 0 0 0 1px $silver-200;
+  border-radius: 5px;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 0 0 1px $orange;
+  }
+
+  @include r($tablet) {
+    padding: 20px 15px;
+  }
 
   &__img {
     margin: 0 auto;
@@ -670,8 +671,23 @@
     }
 
     @include r($phone) {
-      grid-template-columns: repeat(1, 1fr);
-      gap: 0;
+      display: none;
+    }
+  }
+
+  &__box .restorant-card {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  &__slider {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 auto;
+    display: none;
+
+    @include r($phone) {
+      display: block;
     }
   }
 
@@ -720,19 +736,18 @@
 }
 
 .restorant-card {
+  border-radius: 10px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+  background-color: $white;
+  max-width: 370px;
 
-  &__card {
-    border-radius: 10px;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s;
+  &:hover {
+    box-shadow: 0 3px 15px rgba(255, 104, 56, 0.5)
+  }
 
-    &:hover {
-      box-shadow: 0 3px 15px rgba(255, 104, 56, 0.5)
-    }
-
-    @include r($phone) {
-      margin-bottom: 30px;
-    }
+  @include r($phone) {
+    margin-bottom: 30px;
   }
 
   &__box {
@@ -1006,7 +1021,7 @@
     margin-right: 145px;
     padding-right: 2px;
 
-    @include r(567) {
+    @include r($phone) {
       margin: 0;
     }
   }
@@ -1019,6 +1034,10 @@
     display: flex;
     font-size: 0;
     transform: translate(63px, -31px);
+
+    @include r($phone) {
+      display: none;
+    }
 
     button {
       height: 15px;
@@ -1095,6 +1114,8 @@
   }
 
   &__title {
+    margin-bottom: 45px;
+
     @include r($tablet-2) {
       margin-bottom: 15px;
     }
@@ -1141,6 +1162,667 @@
     @include r($tablet-2) {
       display: none;
     }
+  }
+}
+
+.breadcrumbs {
+  background-color: rgba(255, 122, 80, 0.1);
+  margin-top: -5px;
+
+  @include r($phone) {
+    margin-bottom: 14px;
+  }
+
+  &__list {
+    display: flex;
+    padding: 24px 0;
+    color: $dark-gray;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: 0.03em;
+
+    @include r($phone) {
+      padding: 30px 0;
+    }
+  }
+
+  &__link {
+    position: relative;
+    padding: 6px 0px;
+    margin: -6px 0;
+    margin-right: 17px;
+
+
+    &::after {
+      @extend %pseudo;
+      @extend %background;
+      height: 10px;
+      width: 7px;
+      right: -13px;
+      top: 8px;
+      bottom: 3px;
+      background-image: url("../images/sprite.svg#icon-angle-brackets");
+      filter: invert(30%) sepia(52%) saturate(0%) hue-rotate(280deg) brightness(101%) contrast(92%);
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.catalog {
+
+  @include r($phone) {
+    margin-bottom: 20px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+
+    @include r($tablet) {
+      display: block;
+      margin-bottom: 45px;
+    }
+
+    @include r($phone) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    @include r($tablet) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__top-filters {
+    position: relative;
+    display: flex;
+    z-index: 0;
+  }
+
+  &__top-filter {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  &__filter-open {
+    display: none;
+    width: 47px;
+    height: 47px;
+    position: relative;
+    background-color: #FAEDED;
+    border-radius: 3px;
+
+    @include r($tablet-2) {
+      display: block;
+    }
+
+    &::after {
+      @extend %pseudo;
+      @extend %background;
+      width: 32px;
+      height: 36px;
+      top: 5px;
+      right: 8px;
+      background-image: url("../images/sprite.svg#icon-filter");
+      filter: invert(46%) sepia(26%) saturate(4934%) hue-rotate(336deg) brightness(100%) contrast(102%);
+    }
+  }
+
+  .jq-selectbox__select,
+  .jq-selectbox__dropdown ul {
+    color: $dark;
+    font-size: 14px;
+    line-height: 120%;
+    padding: 15px;
+    padding-right: 41px;
+    border: 1px solid $gray;
+    border-radius: 3px;
+    background-color: $white;
+  }
+
+  .jq-selectbox__select {
+    transition: color 0.3s, border 0.3s;
+
+    &:hover {
+      color: $orange;
+      border: 1px solid $orange;
+
+      .jq-selectbox__trigger-arrow {
+        filter: invert(54%) sepia(59%) saturate(1781%) hue-rotate(338deg) brightness(106%) contrast(101%);
+      }
+    }
+  }
+
+  .focused .jq-selectbox__select {
+    border: 1px solid $orange;
+  }
+
+  .jq-selectbox__trigger-arrow {
+    @extend %background;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    width: 6px;
+    height: 11px;
+    background-image: url("../images/sprite.svg#icon-angle-brackets");
+    filter: invert(10%) sepia(1%) saturate(0%) hue-rotate(292deg) brightness(86%) contrast(94%);
+    transform: rotate(270deg);
+    transition: filter 0.3s;
+  }
+
+  .jq-selectbox__dropdown li {
+    border: 1px solid $silver-100;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__right-filters {
+    margin-right: 15px;
+
+    @include r($tablet-2) {
+      display: none;
+    }
+  }
+
+  &__item {
+    text-align: center;
+
+    @include r($tablet-2) {
+      display: block;
+
+      &:nth-last-child(-n + 3) {
+        display: none;
+      }
+    }
+
+    @include r($tablet) {
+      display: block;
+
+      &:nth-last-child(-n + 6) {
+        display: none;
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 60px;
+
+    @include r($tablet-2) {
+      min-width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include r($tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 45px;
+    }
+
+    @include r($phone) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__link-list {
+    display: flex;
+
+  }
+
+  &__product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .filter-category {
+    padding-top: 25px;
+    margin-bottom: 10px;
+
+    &__label {
+      display: block;
+      font-size: 18px;
+      line-height: 130%;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: color 0.3s;
+
+      &:not(:last-child) {
+        margin-bottom: 11px;
+      }
+
+      &--active {
+        color: $orange;
+      }
+
+      &:hover {
+        color: $orange;
+      }
+
+      &:focus .filter-category__text {
+        box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+      }
+
+      &:active .filter-category__text {
+        text-shadow: 2px 2px 5px rgba(54, 56, 83, 0.5);
+      }
+    }
+
+    &__text {
+      border-radius: 3px;
+      transition: box-shadow 0.3s;
+    }
+
+    &__input {
+      @extend %checkbox-hiden;
+    }
+  }
+
+  .filter-offer {
+    padding-top: 25px;
+
+    &__label {
+      display: block;
+      padding-left: 22px;
+      letter-spacing: 0.03em;
+      font-size: 18px;
+      line-height: 120%;
+      transition: color 0.3s;
+
+      &:not(:last-child) {
+        margin-bottom: 14px;
+      }
+
+      &:hover {
+        color: $orange;
+
+        .filter-offer__span {
+          border: 1px solid $orange;
+        }
+      }
+
+      &:focus .filter-offer__span {
+        border: 1px solid $orange;
+      }
+    }
+
+    &__input {
+      @extend %checkbox-hiden;
+
+      &:checked+.filter-offer__span {
+        @extend %background;
+        border: 1px solid $dark-blue;
+        background-image: url("../images/sprite.svg#icon-checked");
+        background-size: 12px;
+      }
+    }
+
+    &__span {
+      width: 24px;
+      height: 24px;
+      border-radius: 3px;
+      border: 1px solid #ECECEC;
+      background-color: #FAEDED;
+      position: absolute;
+      margin-left: -36px;
+      transition: border 0.3s;
+    }
+  }
+
+  .filter-menu {
+    &__filter {
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid $silver-200;
+      max-width: 270px;
+      background-color: $white;
+
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+
+    &__title {
+      letter-spacing: 0.03em;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 120%;
+      padding-bottom: 15px;
+      border-bottom: 1px solid $silver-200;
+    }
+  }
+
+  .filter-price {
+    padding-top: 30px;
+
+    &__controls {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__filter {
+      font-size: 16px;
+      letter-spacing: 0.03em;
+      width: 70px;
+      height: 40px;
+      text-align: center;
+      border-radius: 3px;
+      background-color: #FAEDED;
+      border: 1px solid #FAEDED;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: $orange;
+      }
+    }
+
+    &__inner-from,
+    &__inner-to {
+      position: relative;
+      padding-right: 14px;
+
+      &::after,
+      &::before {
+        position: absolute;
+        color: #C2C2C2;
+        font-size: 16px;
+      }
+
+      &::after {
+        content: "₴";
+        width: 10px;
+        height: 16px;
+        right: 0;
+        top: 9px;
+      }
+
+      &::before {
+        height: 18px;
+        left: 0;
+        top: 9px;
+      }
+    }
+
+    &__inner-from {
+      padding-left: 22px;
+
+      &::before {
+        content: "от";
+      }
+    }
+
+    &__inner-to {
+      padding-left: 24px;
+
+      &::before {
+        content: "до";
+      }
+    }
+
+    .irs-line {
+      height: 2px;
+      background-color: $gray;
+    }
+
+    .irs--round .irs-handle {
+      border: none;
+      background-color: $orange;
+      box-shadow: none;
+      border-radius: 50%;
+      height: 18px;
+      width: 18px;
+      top: 28px;
+    }
+
+    .irs-bar {
+      background-color: $orange;
+      height: 2px;
+    }
+
+    .irs-from,
+    .irs-to,
+    .irs-max,
+    .irs-min {
+      display: none;
+    }
+  }
+
+  .filter-mob {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -320px;
+    transition: left .3s;
+    z-index: 3;
+    overflow-y: auto;
+    padding-right: 50px;
+    background-color: $white;
+    padding-top: 20px;
+    padding-bottom: 50px;
+
+    &--active {
+      left: 0;
+    }
+
+
+    &__filter-close {
+      display: block;
+      position: relative;
+      height: 40px;
+      width: 40px;
+      border-radius: 3px;
+      background-color: #FAEDED;
+      margin-bottom: 20px;
+      margin-left: auto;
+      transform: translateX(30px);
+
+      &::after {
+        @extend %pseudo;
+        @extend %background;
+        width: 18px;
+        height: 18px;
+        top: 11px;
+        left: 11px;
+        background-image: url("../images/sprite.svg#icon-burger-menu-active");
+      }
+
+    }
+  }
+}
+
+.pagination {
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 7px;
+    }
+
+    &--hide {
+      @include r($tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 47px;
+    height: 47px;
+    border: 1px solid #FAEDED;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #FAEDED;
+    position: relative;
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+
+    &:hover {
+      border-color: $orange;
+      background-color: $orange;
+      color: $white;
+
+      &::after {
+        filter: invert(100%);
+      }
+    }
+
+    &:focus {
+      border-color: #FAEDED;
+      box-shadow: 0 0 0 2px $orange;
+    }
+
+    &:active {
+      box-shadow: inset 0 -1px 4px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    &--active {
+      border: 1px solid $dark-blue;
+    }
+
+    &--next {
+      transform: rotate(180deg);
+    }
+
+    &--pref,
+    &--next {
+      &::after {
+        @extend %pseudo;
+        @extend %background;
+        background-image: url("../images/sprite.svg#icon-angle-brackets");
+        width: 11px;
+        height: 18px;
+        transition: filter 0.3s;
+      }
+    }
+
+    &--pref {
+      &::after {
+        top: 15px;
+        left: 19px;
+      }
+    }
+
+    &--next {
+      &::after {
+        top: 11px;
+        left: 15px;
+      }
+    }
+
+    &--block {
+      &::after {
+        filter: invert(82%) sepia(8%) saturate(2818%) hue-rotate(198deg) brightness(95%) contrast(84%);
+      }
+    }
+  }
+}
+
+.promo {
+  margin-bottom: 120px;
+
+  @include r($tablet-2) {
+    margin-bottom: 100px;
+  }
+
+
+  @include r($tablet) {
+    margin-bottom: 60px;
+  }
+
+  @include r($phone) {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+
+    @include r($tablet) {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+
+    @include r($tablet) {
+      display: none;
+    }
+  }
+
+  .restorant-card__name {
+    @include line-clamp(5);
+    white-space: normal;
+    margin-bottom: 0;
+  }
+
+  &__slider {
+    display: none;
+
+    @include r($tablet) {
+      display: block;
+    }
+
+    .restorant-card {
+      margin: 0 auto;
+      margin-bottom: 45px;
+    }
+  }
+
+  & .slick-dots {
+    display: flex;
+    font-size: 0;
+    justify-content: center;
+    height: 100%;
+
+    button {
+      height: 15px;
+      width: 15px;
+      background-color: $gray;
+      border-radius: 50%;
+    }
+
+    li {
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+
+  }
+
+  & .slick-dots button {
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    &:active {
+      background-color: #FFAE94;
+    }
+
+    &:hover {
+      background-color: #FFF2ED;
+      box-shadow: 0 0 0 2px rgba(255, 122, 80, 0.7);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px #FF6838;
+    }
+  }
+
+  & .slick-active button {
+    background-color: #FF7A50;
   }
 }
 
@@ -1255,7 +1937,7 @@
       padding: 10px 0;
       padding-left: 31px;
       margin: -10px 0;
-      
+
     }
   }
 

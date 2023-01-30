@@ -3,6 +3,7 @@ $lite-orange: #FFF2ED;
 $silver-100: #f9faff;
 $silver-200: #ececec;
 $gray: #c2c2c2;
+$dark-gray: #505050;
 $dark-blue: #363853;
 $dark: #31352b;
 $bg-color: #F9FAFF;
@@ -66,4 +67,11 @@ $desktop: 1200;
 %pseudo {
   content: "";
   position: absolute;
+}
+
+%checkbox-hiden {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
 }

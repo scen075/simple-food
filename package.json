@@ -26,6 +26,8 @@
   "dependencies": {
     "browser-sync": "^2.27.11",
     "gulp-file-include": "^2.3.0",
-    "jquery": "^3.6.3"
+    "ion-rangeslider": "^2.3.1",
+    "jquery": "^3.6.3",
+    "jquery-form-styler": "^2.0.2"
   }
 }

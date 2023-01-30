@@ -13,10 +13,17 @@ $(function () {
       breakpoint: 576,
       settings: {
         dots: false,
-        fade:true
+        fade: true
       }
     }]
   })
+
+  $('.restorant__slider').slick({
+    dots: true,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 7000
+  });
 
   $('.burger-open').on('click', function () {
     $('.menu-mob').addClass('menu-mob--active');
@@ -28,33 +35,103 @@ $(function () {
     $('body').removeClass('lock');
   });
 
-  $(window).on('resize', function (e) {
-    // Переменная, по которой узнаем запущен слайдер или нет.
-    var initLib = $('.library-slider').data('init-slider');
+  $(document).mouseup(function (e) { // событие клика по веб-документу
+   const div = $(".menu-mob--active"); // тут указываем ID элемента
+    if (!div.is(e.target) // если клик был не по нашему блоку
+      &&
+      div.has(e.target).length === 0) { // и не по его дочерним элементам
+      $('.menu-mob').removeClass('menu-mob--active');
+      $('body').removeClass('lock');
+    }
+  });
 
-    if (window.innerWidth < 576) {
-      // Если слайдер не запущен
-      if (initLib != 1) {
-        // Запускаем слайдер и записываем в data init-slider = 1
-        $('.restorant__inner').slick({
-          dots: true,
-          arrows: false,
-          autoplay: true,
-          autoplaySpeed: 7000
-        });
-      }
+  $('.catalog__filter-sort').styler();
+
+  var $range = $(".filter-price__slider"),
+    $inputFrom = $(".filter-price__from"),
+    $inputTo = $(".filter-price__to"),
+    instance,
+    min = 100,
+    max = 1000,
+    from = 200,
+    to = 800;
+
+  $range.ionRangeSlider({
+    skin: "round",
+    type: "double",
+    min: min,
+    max: max,
+    from: 200,
+    to: 800,
+    onStart: updateInputs,
+    onChange: updateInputs
+  });
+  instance = $range.data("ionRangeSlider");
+
+  function updateInputs(data) {
+    from = data.from;
+    to = data.to;
+
+    $inputFrom.prop("value", from);
+    $inputTo.prop("value", to);
+  }
+
+  $inputFrom.on("input", function () {
+    var val = $(this).prop("value");
+
+    // validate
+    if (val < min) {
+      val = min;
+    } else if (val > to) {
+      val = to;
     }
-    // Если десктоп
-    else {
-      // Если слайдер запущен
-      if (initLib == 1) {
-        // Разрушаем слайдер и записываем в data init-slider = 0
-        $('.library-slider').slick('unslick').data({
-          'init-slider': 0
-        });
-      }
+
+    instance.update({
+      from: val
+    });
+  });
+
+  $inputTo.on("input", function () {
+    var val = $(this).prop("value");
+
+    // validate
+    if (val < from) {
+      val = from;
+    } else if (val > max) {
+      val = max;
     }
-  }).trigger('resize')
+
+    instance.update({
+      to: val
+    });
+  });
+
+  $('.catalog__filter-open').on('click', function () {
+    $('.filter-mob').addClass('filter-mob--active');
+    $('body').addClass('lock');
+  });
+
+  $('.filter-mob__filter-close').on('click', function () {
+    $('.filter-mob').removeClass('filter-mob--active');
+    $('body').removeClass('lock');
+  });
+
+  $(document).mouseup(function (e) { // событие клика по веб-документу
+   const div = $(".filter-mob--active"); // тут указываем ID элемента
+    if (!div.is(e.target) // если клик был не по нашему блоку
+      &&
+      div.has(e.target).length === 0) { // и не по его дочерним элементам
+      $('.filter-mob').removeClass('filter-mob--active');
+      $('body').removeClass('lock');
+    }
+  });
+
+  $('.promo__slider').slick({
+    dots: true,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 7000
+  });
 
 });
 
