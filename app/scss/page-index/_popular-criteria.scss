@@ -1,0 +1,158 @@
+.popular-criteria {
+  text-align: center;
+
+  &__title {
+    margin-bottom: 60px;
+
+    @include r($tablet) {
+      margin-bottom: 40px;
+    }
+
+    @include r($phone) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__btn-list {
+    text-align: left;
+    display: flex;
+    margin-top: -5px;
+    margin-bottom: 40px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    @include r($tablet) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__list-item {
+    scroll-snap-align: end;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+
+      @include r($tablet) {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__list-btn {
+    display: flex;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 32px;
+    background-color: $white;
+    box-shadow: 0 0 0 1px $silver-200;
+    color: $dark;
+    transition: box-shadow 0.3s, color 0.3s, background-color 0.3s;
+    font-size: 20px;
+    letter-spacing: 0;
+    white-space: nowrap;
+
+    @include r($tablet) {
+      font-size: 16px;
+      padding: 12px 24px;
+
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    @include r($phone) {
+      font-size: 14px;
+      padding: 11px 13px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    use {
+      transition: fill 0.3s;
+    }
+
+    svg {
+      margin-right: 10px;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+      color: $dark;
+      background-color: $white;
+    }
+
+    &:hover {
+      color: $orange;
+      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+      background-color: rgba(255, 122, 80, 0.1);
+    }
+
+    &:hover use {
+      fill: $orange;
+    }
+
+    &:active {
+      box-shadow: inset 0 -5px 12px rgba(255, 104, 56, 0.2);
+      background-color: $white;
+      color: $dark;
+
+      use {
+        fill: $dark;
+      }
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+    margin-top: -5px;
+
+    @include r($desktop) {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 5px;
+    }
+
+    @include r($desktop) {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    @include r($tablet-2) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    @include r($tablet) {
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-bottom: 70px;
+    }
+
+    @include r($phone) {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 5px;
+    }
+  }
+
+
+  .mixitup-control-active {
+    background-color: $orange;
+    color: $white;
+  }
+
+  .mixitup-control-active use {
+    fill: $white;
+  }
+
+  &__link {
+    text-decoration: underline;
+    font-size: 20px;
+  }
+}

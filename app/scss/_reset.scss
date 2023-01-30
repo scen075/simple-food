@@ -8,6 +8,11 @@ html {
   box-sizing: inherit;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 ul,
 ol {
   padding: 0;

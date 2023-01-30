@@ -1,0 +1,256 @@
+.reviews {
+  padding-bottom: 40px;
+
+  @include r($phone) {
+    padding-top: 25px;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 45px;
+
+    @include r($tablet) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__items {
+    position: relative;
+  }
+
+  &__item {
+    max-width: 990px;
+    margin: 0 auto;
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 auto;
+
+    @include r($phone) {
+      flex-direction: column;
+    }
+  }
+
+  &__img {
+    border-radius: 50%;
+    margin-right: 40px;
+
+    @include r($tablet-2) {
+      margin-right: 30px;
+      width: 25%;
+      height: 25%;
+    }
+
+    @include r($phone) {
+      margin-bottom: 30px;
+      margin-right: 0;
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  &__content {
+    padding: 0 40px;
+  }
+
+  &__slider {
+    margin-bottom: 45px;
+
+    @include r($phone) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    line-height: 150%;
+    font-weight: 400;
+    margin-bottom: 30px;
+    font-style: italic;
+    position: relative;
+
+    &::after,
+    &::before {
+      @extend %background;
+      @extend %pseudo;
+      width: 24px;
+      height: 20px;
+      background-image: url("../images/sprite.svg#icon-quote-open");
+      filter: invert(94%) sepia(0%) saturate(330%) hue-rotate(165deg) brightness(83%) contrast(94%);
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      transform: translateX(-40px);
+
+      @include r($phone) {
+        top: -10px;
+        left: 6px;
+      }
+    }
+
+    &::after {
+      bottom: 0;
+      right: 0;
+      transform: translateX(40px) scale(-1, 1);
+
+      @include r($phone) {
+        bottom: 13px;
+        right: 7px;
+      }
+    }
+
+    @include r($tablet) {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    @include r($phone) {
+      font-size: 14px;
+    }
+  }
+
+  &__name {
+    color: $orange;
+    font-weight: 500;
+    margin-bottom: 15px;
+
+    @include r($tablet) {
+      margin-bottom: 6px;
+    }
+
+    @include r($phone) {
+      font-size: 16px;
+    }
+  }
+
+  &__status {
+    font-size: 14px;
+    line-height: 130%;
+  }
+
+  &__btn-box {
+    margin: 0 auto;
+    max-width: 230px;
+
+    @include r($phone) {
+      max-width: 275px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 33px;
+    }
+  }
+
+  &__arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid $gray;
+    padding-top: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+
+    use {
+      transition: fill 0.3s;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+    }
+
+    &:hover {
+      background-color: $lite-orange;
+      border-color: #FFAE94;
+
+      use {
+        fill: #FFAE94;
+      }
+    }
+
+    &:active {
+      background-color: $lite-orange;
+      border-color: $lite-orange;
+
+      use {
+        fill: $orange;
+      }
+    }
+  }
+
+  &__angle-arrow--next {
+    transform: rotate(180deg);
+  }
+
+  & .slider__arrow--prev {
+    margin-right: 145px;
+    padding-right: 2px;
+
+    @include r($phone) {
+      margin: 0;
+    }
+  }
+
+  & .slider__arrow--next {
+    padding-left: 5px;
+  }
+
+  & .slick-dots {
+    display: flex;
+    font-size: 0;
+    transform: translate(63px, -31px);
+
+    @include r($phone) {
+      display: none;
+    }
+
+    button {
+      height: 15px;
+      width: 15px;
+      background-color: $gray;
+      border-radius: 50%;
+    }
+
+    li {
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+
+  }
+
+  & .slick-disabled {
+    border: 3px solid #FF7A50;
+
+    use {
+      fill: #FF7A50;
+    }
+  }
+
+  & .slick-dots button {
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    &:active {
+      background-color: #FFAE94;
+    }
+
+    &:hover {
+      background-color: #FFF2ED;
+      box-shadow: 0 0 0 2px rgba(255, 122, 80, 0.7);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px #FF6838;
+    }
+  }
+
+  & .slick-active button {
+    background-color: #FF7A50;
+  }
+}

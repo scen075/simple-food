@@ -1,0 +1,51 @@
+.form-subscribe {
+  margin-top: 26px;
+
+  &__input {
+    max-width: 200px;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    background: $white;
+    border: 1px solid $gray;
+    padding: 13px 15px;
+    @extend %paragraph-14;
+    line-height: 130%;
+    transition: border 0.3s, box-shadow 0.3s;
+
+    &::placeholder {
+      transition: color 0.3s;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $orange;
+    }
+
+
+    &:hover::placeholder {
+      color: #363853;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 38px;
+    line-height: 130%;
+    font-size: 14px;
+    font-weight: 500;
+
+    &:focus use,
+    &:hover use,
+    &:active use {
+      fill: $orange;
+    }
+
+    svg {
+      margin-right: 15px;
+    }
+
+    @include r($phone) {
+      padding: 14px 38px;
+    }
+  }
+}

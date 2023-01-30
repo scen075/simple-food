@@ -1,0 +1,91 @@
+.restorant-card {
+  border-radius: 10px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+  background-color: $white;
+  max-width: 370px;
+
+  &:hover {
+    box-shadow: 0 3px 15px rgba(255, 104, 56, 0.5)
+  }
+
+  @include r($phone) {
+    margin-bottom: 30px;
+  }
+
+  &__box {
+    padding: 20px;
+    padding-top: 15px;
+  }
+
+  &__img {
+    border-radius: 10px 10px 0 0;
+
+    @include r($tablet-2) {
+      width: 100%;
+    }
+  }
+
+  &__name {
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 24px;
+    @include line-clamp(1);
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__time {
+    padding-left: 32px;
+    position: relative;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    &::after {
+      @extend %pseudo;
+      width: 22px;
+      height: 22px;
+      left: 0;
+      @extend %background;
+      background-image: url("../images/sprite.svg#icon-time");
+    }
+  }
+
+  &__btn {
+    border-radius: 20px;
+    height: 33px;
+    width: 79px;
+    transition: transform 0.3s;
+
+    @include r($tablet) {
+      padding: 12px 32px;
+    }
+
+    &::after {
+      @extend %pseudo;
+      width: 14px;
+      height: 12px;
+      transform: translate(0px, -1px);
+      filter: invert(100%) sepia(95%) saturate(2%) hue-rotate(288deg) brightness(107%) contrast(101%);
+      @extend %background;
+      transition: transform 0.3s;
+      background-image: url("../images/sprite.svg#icon-row");
+    }
+
+    &:hover::after,
+    &:focus::after,
+    &:active::after {
+      filter: invert(68%) sepia(57%) saturate(5754%) hue-rotate(336deg) brightness(102%) contrast(106%);
+    }
+
+    &:hover::after {
+      transform: translate(10px, -1px);
+    }
+  }
+
+}

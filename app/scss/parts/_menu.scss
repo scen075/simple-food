@@ -1,0 +1,154 @@
+.menu {
+  display: flex;
+  align-items: center;
+  @extend %rubik-400;
+  font-size: 18px;
+
+  &__list {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-right: 50px;
+
+    @include r($tablet-2) {
+      display: none;
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 45px;
+  }
+
+  &__link--active {
+    color: $orange;
+  }
+}
+
+.burger-open {
+  width: 44px;
+  height: 44px;
+  display: none;
+
+  @include r($tablet-2) {
+    display: block;
+  }
+}
+
+.menu-mob {
+  height: 100vh;
+  width: 300px;
+  position: absolute;
+  top: 0;
+  left: -300px;
+  background-color: #fff;
+  transition: left 0.3s;
+  z-index: 3;
+  overflow-y: auto;
+  padding-bottom: 70px;
+
+  &__top,
+  &__middle {
+    padding: 25px 0;
+    border-bottom: 1px solid #EEEFF3;
+  }
+
+
+  &__top-box {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__bottum {
+    padding-top: 15px;
+  }
+
+  &--active {
+    left: 0;
+  }
+
+  &__item {
+    font-size: 18px;
+  }
+}
+
+.user-nav {
+  display: flex;
+
+  @include r($tablet-2) {
+    margin-right: 10px;
+  }
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  &__num {
+    position: absolute;
+    left: 28px;
+    top: 6px;
+    display: block;
+    background-color: $orange;
+    border-radius: 10px;
+    padding: 3px 4px 3px;
+    @extend %rubik-400;
+    color: $white;
+    font-size: 10px;
+    line-height: 10px;
+    text-align: center;
+  }
+
+  &__link {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+
+    & use,
+    & use {
+      transition: stroke 0.3s;
+    }
+
+    &:focus {
+      background-color: rgba(255, 122, 80, 0.1);
+      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+    }
+
+    &:hover {
+      background-color: $orange;
+    }
+
+    &:hover use {
+      stroke: $white;
+    }
+
+    &:hover .user-nav__num {
+      color: $orange;
+      background: $white;
+    }
+
+    &:active {
+      background-color: $lite-orange;
+
+      use {
+        stroke: $dark-blue;
+      }
+    }
+  }
+
+  &__item--cart {
+    position: relative;
+
+  }
+}

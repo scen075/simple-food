@@ -1,0 +1,45 @@
+.social-icon {
+  display: flex;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 13px;
+    }
+  }
+
+  &__link {
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background-color: $silver-200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    & use {
+      transition: fill 0.3s;
+    }
+
+    &:focus {
+      background-color: $lite-orange;
+      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+    }
+
+    &:hover {
+      background-color: $orange;
+    }
+
+    &:hover use {
+      fill: $white;
+    }
+
+    &:active {
+      background-color: $lite-orange;
+    }
+
+    &:active use {
+      fill: $orange;
+    }
+  }
+}
