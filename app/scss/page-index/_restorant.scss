@@ -1,0 +1,89 @@
+.restorant {
+  padding-top: 73px;
+
+  @include r($tablet-2) {
+    padding-top: 60px;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 45px;
+
+    @include r($phone) {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @include r($tablet-2) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include r($phone) {
+      display: none;
+    }
+  }
+
+  &__box .restorant-card {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  &__slider {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 auto;
+    display: none;
+
+    @include r($phone) {
+      display: block;
+    }
+  }
+
+  & .slick-dots {
+    display: flex;
+    font-size: 0;
+    justify-content: center;
+    height: 100%;
+
+    button {
+      height: 15px;
+      width: 15px;
+      background-color: $gray;
+      border-radius: 50%;
+    }
+
+    li {
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+
+  }
+
+  & .slick-dots button {
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    &:active {
+      background-color: #FFAE94;
+    }
+
+    &:hover {
+      background-color: #FFF2ED;
+      box-shadow: 0 0 0 2px rgba(255, 122, 80, 0.7);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px #FF6838;
+    }
+  }
+
+  & .slick-active button {
+    background-color: #FF7A50;
+  }
+}

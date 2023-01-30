@@ -1,0 +1,89 @@
+.pagination {
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 7px;
+    }
+
+    &--hide {
+      @include r($tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 47px;
+    height: 47px;
+    border: 1px solid #FAEDED;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #FAEDED;
+    position: relative;
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+
+    &:hover {
+      border-color: $orange;
+      background-color: $orange;
+      color: $white;
+
+      &::after {
+        filter: invert(100%);
+      }
+    }
+
+    &:focus {
+      border-color: #FAEDED;
+      box-shadow: 0 0 0 2px $orange;
+    }
+
+    &:active {
+      box-shadow: inset 0 -1px 4px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    &--active {
+      border: 1px solid $dark-blue;
+    }
+
+    &--next {
+      transform: rotate(180deg);
+    }
+
+    &--pref,
+    &--next {
+      &::after {
+        @extend %pseudo;
+        @extend %background;
+        background-image: url("../images/sprite.svg#icon-angle-brackets");
+        width: 11px;
+        height: 18px;
+        transition: filter 0.3s;
+      }
+    }
+
+    &--pref {
+      &::after {
+        top: 15px;
+        left: 19px;
+      }
+    }
+
+    &--next {
+      &::after {
+        top: 11px;
+        left: 15px;
+      }
+    }
+
+    &--block {
+      &::after {
+        filter: invert(82%) sepia(8%) saturate(2818%) hue-rotate(198deg) brightness(95%) contrast(84%);
+      }
+    }
+  }
+}

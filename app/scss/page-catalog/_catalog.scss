@@ -1,0 +1,429 @@
+.catalog {
+
+  @include r($phone) {
+    margin-bottom: 20px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+
+    @include r($tablet) {
+      display: block;
+      margin-bottom: 45px;
+    }
+
+    @include r($phone) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    @include r($tablet) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__top-filters {
+    position: relative;
+    display: flex;
+    z-index: 0;
+  }
+
+  &__top-filter {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  &__filter-open {
+    display: none;
+    width: 47px;
+    height: 47px;
+    position: relative;
+    background-color: #FAEDED;
+    border-radius: 3px;
+
+    @include r($tablet-2) {
+      display: block;
+    }
+
+    &::after {
+      @extend %pseudo;
+      @extend %background;
+      width: 32px;
+      height: 36px;
+      top: 5px;
+      right: 8px;
+      background-image: url("../images/sprite.svg#icon-filter");
+      filter: invert(46%) sepia(26%) saturate(4934%) hue-rotate(336deg) brightness(100%) contrast(102%);
+    }
+  }
+
+  .jq-selectbox__select,
+  .jq-selectbox__dropdown ul {
+    color: $dark;
+    font-size: 14px;
+    line-height: 120%;
+    padding: 15px;
+    padding-right: 41px;
+    border: 1px solid $gray;
+    border-radius: 3px;
+    background-color: $white;
+  }
+
+  .jq-selectbox__select {
+    transition: color 0.3s, border 0.3s;
+
+    &:hover {
+      color: $orange;
+      border: 1px solid $orange;
+
+      .jq-selectbox__trigger-arrow {
+        filter: invert(54%) sepia(59%) saturate(1781%) hue-rotate(338deg) brightness(106%) contrast(101%);
+      }
+    }
+  }
+
+  .focused .jq-selectbox__select {
+    border: 1px solid $orange;
+  }
+
+  .jq-selectbox__trigger-arrow {
+    @extend %background;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    width: 6px;
+    height: 11px;
+    background-image: url("../images/sprite.svg#icon-angle-brackets");
+    filter: invert(10%) sepia(1%) saturate(0%) hue-rotate(292deg) brightness(86%) contrast(94%);
+    transform: rotate(270deg);
+    transition: filter 0.3s;
+  }
+
+  .jq-selectbox__dropdown li {
+    border: 1px solid $silver-100;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__right-filters {
+    margin-right: 15px;
+
+    @include r($tablet-2) {
+      display: none;
+    }
+  }
+
+  &__item {
+    text-align: center;
+
+    @include r($tablet-2) {
+      display: block;
+
+      &:nth-last-child(-n + 3) {
+        display: none;
+      }
+    }
+
+    @include r($tablet) {
+      display: block;
+
+      &:nth-last-child(-n + 6) {
+        display: none;
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 60px;
+
+    @include r($tablet-2) {
+      min-width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include r($tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 45px;
+    }
+
+    @include r($phone) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__link-list {
+    display: flex;
+
+  }
+
+  &__product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .filter-category {
+    padding-top: 25px;
+    margin-bottom: 10px;
+
+    &__label {
+      display: block;
+      font-size: 18px;
+      line-height: 130%;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: color 0.3s;
+
+      &:not(:last-child) {
+        margin-bottom: 11px;
+      }
+
+      &--active {
+        color: $orange;
+      }
+
+      &:hover {
+        color: $orange;
+      }
+
+      &:focus .filter-category__text {
+        box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+      }
+
+      &:active .filter-category__text {
+        text-shadow: 2px 2px 5px rgba(54, 56, 83, 0.5);
+      }
+    }
+
+    &__text {
+      border-radius: 3px;
+      transition: box-shadow 0.3s;
+    }
+
+    &__input {
+      @extend %checkbox-hiden;
+    }
+  }
+
+  .filter-offer {
+    padding-top: 25px;
+
+    &__label {
+      display: block;
+      padding-left: 22px;
+      letter-spacing: 0.03em;
+      font-size: 18px;
+      line-height: 120%;
+      transition: color 0.3s;
+
+      &:not(:last-child) {
+        margin-bottom: 14px;
+      }
+
+      &:hover {
+        color: $orange;
+
+        .filter-offer__span {
+          border: 1px solid $orange;
+        }
+      }
+
+      &:focus .filter-offer__span {
+        border: 1px solid $orange;
+      }
+    }
+
+    &__input {
+      @extend %checkbox-hiden;
+
+      &:checked+.filter-offer__span {
+        @extend %background;
+        border: 1px solid $dark-blue;
+        background-image: url("../images/sprite.svg#icon-checked");
+        background-size: 12px;
+      }
+    }
+
+    &__span {
+      width: 24px;
+      height: 24px;
+      border-radius: 3px;
+      border: 1px solid #ECECEC;
+      background-color: #FAEDED;
+      position: absolute;
+      margin-left: -36px;
+      transition: border 0.3s;
+    }
+  }
+
+  .filter-menu {
+    &__filter {
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid $silver-200;
+      max-width: 270px;
+      background-color: $white;
+
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+
+    &__title {
+      letter-spacing: 0.03em;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 120%;
+      padding-bottom: 15px;
+      border-bottom: 1px solid $silver-200;
+    }
+  }
+
+  .filter-price {
+    padding-top: 30px;
+
+    &__controls {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__filter {
+      font-size: 16px;
+      letter-spacing: 0.03em;
+      width: 70px;
+      height: 40px;
+      text-align: center;
+      border-radius: 3px;
+      background-color: #FAEDED;
+      border: 1px solid #FAEDED;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: $orange;
+      }
+    }
+
+    &__inner-from,
+    &__inner-to {
+      position: relative;
+      padding-right: 14px;
+
+      &::after,
+      &::before {
+        position: absolute;
+        color: #C2C2C2;
+        font-size: 16px;
+      }
+
+      &::after {
+        content: "₴";
+        width: 10px;
+        height: 16px;
+        right: 0;
+        top: 9px;
+      }
+
+      &::before {
+        height: 18px;
+        left: 0;
+        top: 9px;
+      }
+    }
+
+    &__inner-from {
+      padding-left: 22px;
+
+      &::before {
+        content: "от";
+      }
+    }
+
+    &__inner-to {
+      padding-left: 24px;
+
+      &::before {
+        content: "до";
+      }
+    }
+
+    .irs-line {
+      height: 2px;
+      background-color: $gray;
+    }
+
+    .irs--round .irs-handle {
+      border: none;
+      background-color: $orange;
+      box-shadow: none;
+      border-radius: 50%;
+      height: 18px;
+      width: 18px;
+      top: 28px;
+    }
+
+    .irs-bar {
+      background-color: $orange;
+      height: 2px;
+    }
+
+    .irs-from,
+    .irs-to,
+    .irs-max,
+    .irs-min {
+      display: none;
+    }
+  }
+
+  .filter-mob {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -320px;
+    transition: left .3s;
+    z-index: 3;
+    overflow-y: auto;
+    padding-right: 50px;
+    background-color: $white;
+    padding-top: 20px;
+    padding-bottom: 50px;
+
+    &--active {
+      left: 0;
+    }
+
+
+    &__filter-close {
+      display: block;
+      position: relative;
+      height: 40px;
+      width: 40px;
+      border-radius: 3px;
+      background-color: #FAEDED;
+      margin-bottom: 20px;
+      margin-left: auto;
+      transform: translateX(30px);
+
+      &::after {
+        @extend %pseudo;
+        @extend %background;
+        width: 18px;
+        height: 18px;
+        top: 11px;
+        left: 11px;
+        background-image: url("../images/sprite.svg#icon-burger-menu-active");
+      }
+
+    }
+  }
+}

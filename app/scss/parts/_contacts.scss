@@ -1,0 +1,59 @@
+.contacts {
+
+  &__list {
+    margin-bottom: 18px;
+  }
+
+  &__item {
+    font-size: 16px;
+    line-height: 200%;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+
+      @include r($phone) {
+        margin-bottom: 15px
+      }
+    }
+  }
+
+  &__link {
+    padding: 3px;
+    padding-left: 31px;
+    position: relative;
+    font-size: 16px;
+    line-height: 200%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 24px;
+      height: 24px;
+      @extend %background;
+    }
+
+    @include r($tablet) {
+      padding: 10px 0;
+      padding-left: 31px;
+      margin: -10px 0;
+
+    }
+  }
+
+
+  &__address::before {
+    background-image: url("../images/icons/icon-location.svg");
+    top: 16px;
+  }
+
+  &__link--email::before {
+    background-image: url("../images/icons/icon-message.svg");
+  }
+
+  &__link--phone::before {
+    background-image: url("../images/icons/icon-сalling.svg");
+  }
+
+}

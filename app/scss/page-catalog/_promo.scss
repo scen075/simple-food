@@ -1,0 +1,97 @@
+.promo {
+  margin-bottom: 120px;
+
+  @include r($tablet-2) {
+    margin-bottom: 100px;
+  }
+
+
+  @include r($tablet) {
+    margin-bottom: 60px;
+  }
+
+  @include r($phone) {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+
+    @include r($tablet) {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+
+    @include r($tablet) {
+      display: none;
+    }
+  }
+
+  .restorant-card__name {
+    @include line-clamp(5);
+    white-space: normal;
+    margin-bottom: 0;
+  }
+
+  &__slider {
+    display: none;
+
+    @include r($tablet) {
+      display: block;
+    }
+
+    .restorant-card {
+      margin: 0 auto;
+      margin-bottom: 45px;
+    }
+  }
+
+  & .slick-dots {
+    display: flex;
+    font-size: 0;
+    justify-content: center;
+    height: 100%;
+
+    button {
+      height: 15px;
+      width: 15px;
+      background-color: $gray;
+      border-radius: 50%;
+    }
+
+    li {
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+
+  }
+
+  & .slick-dots button {
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    &:active {
+      background-color: #FFAE94;
+    }
+
+    &:hover {
+      background-color: #FFF2ED;
+      box-shadow: 0 0 0 2px rgba(255, 122, 80, 0.7);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px #FF6838;
+    }
+  }
+
+  & .slick-active button {
+    background-color: #FF7A50;
+  }
+}

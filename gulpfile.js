@@ -127,5 +127,6 @@ exports.cleanDist = cleanDist;
 exports.wathing = wathing;
 exports.build = series(cleanDist, images, build);
 exports.svgSprites = svgSprites;
+exports.htmlInclude = htmlInclude;
 
-exports.default = parallel(svgSprites, styles, scripts, browsersync, wathing)
+exports.default = parallel(htmlInclude, svgSprites, styles, scripts, browsersync, wathing)

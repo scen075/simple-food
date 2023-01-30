@@ -1,0 +1,109 @@
+.hero {
+  padding: 0;
+  padding-bottom: 55px;
+
+  @include r(660) {
+    padding-bottom: 20px;
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include r($tablet-2) {
+      padding: 90px 0;
+    }
+
+    @include r($tablet) {
+      padding: 60px 0;
+    }
+
+    @include r($phone) {
+      padding: 25px 0;
+    }
+  }
+
+  &__content {
+    max-width: 450px;
+
+    @include r($tablet-2) {
+      max-width: 370px;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    @extend %rubik-500;
+    color: $dark-blue;
+    font-size: 66px;
+    line-height: 130%;
+    margin-bottom: 20px;
+
+    @include r($tablet-2) {
+      font-size: 55px;
+    }
+
+    @include r($tablet) {
+      max-width: 260px;
+      font-size: 40px;
+    }
+
+    span {
+      color: $orange;
+    }
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    @include line-clamp(5);
+
+    @include r($tablet) {
+      font-size: 16px;
+    }
+  }
+
+  &__link {
+    text-decoration: underline;
+  }
+
+  &__btn {
+    display: inline-block;
+    margin-right: 30px;
+
+    &:hover {
+      box-shadow: 0 5px 12px rgba(255, 104, 56, 0.2), 0 0 0 2px rgba(255, 104, 56, 0.7);
+    }
+
+    @include r($phone) {
+      margin-right: 25px;
+    }
+  }
+
+  &__box {
+    background-size: contain;
+    @extend %background;
+    height: 660px;
+    max-width: 560px;
+    width: 100%;
+
+    @include r($tablet-2) {
+      position: absolute;
+      z-index: -1;
+      opacity: 15%;
+      right: 0;
+      top: auto;
+      bottom: auto;
+      background-size: 90%;
+    }
+
+    @include r($tablet) {
+      max-width: 450px;
+    }
+
+    @include r($phone) {
+      max-width: 250px;
+    }
+  }
+}

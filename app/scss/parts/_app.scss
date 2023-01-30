@@ -1,0 +1,79 @@
+.app {
+  padding-bottom: 120px;
+  margin-top: 8px;
+
+  @include r($desktop) {
+    padding-bottom: 90px;
+  }
+
+  @include r($tablet) {
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 60px;
+  }
+
+  @include r($phone) {
+    padding-bottom: 40px;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__content {
+    max-width: 540px;
+  }
+
+  &__title {
+    margin-bottom: 45px;
+
+    @include r($tablet-2) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    line-height: 150%;
+    @include line-clamp(5);
+
+    @include r($tablet) {
+      margin-bottom: 20px;
+    }
+
+    @include r($phone) {
+      font-size: 14px;
+      margin-bottom: 13px;
+    }
+  }
+
+  &__links {
+    display: flex;
+  }
+
+  &__link {
+    width: 135px;
+    height: 40px;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+
+      @include r($tablet) {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  &__box {
+    display: block;
+    @extend %background;
+    width: 570px;
+    height: 380px;
+
+    @include r($tablet-2) {
+      display: none;
+    }
+  }
+}

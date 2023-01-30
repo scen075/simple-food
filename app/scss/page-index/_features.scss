@@ -1,0 +1,130 @@
+.features {
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 70px;
+    position: relative;
+
+    @include r($tablet-2) {
+      display: block;
+    }
+
+    @include r($tablet-2) {
+      margin: 0;
+    }
+  }
+
+  &__content {
+    max-width: 470px;
+    margin-left: auto;
+
+    @include r($tablet) {
+      padding-top: 30px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    @include line-clamp(6);
+
+    p {
+      line-height: 150%;
+
+      @include r($tablet) {
+        font-size: 18px;
+      }
+
+      @include r($phone) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__list {
+    margin-bottom: 30px;
+
+    @include r($phone) {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__item {
+    padding-left: 65px;
+    color: $dark-blue;
+    font-size: 24px;
+    line-height: 150%;
+    position: relative;
+    @include line-clamp(2);
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+
+      @include r($phone) {
+        margin-bottom: 16px;
+      }
+    }
+
+    @include r($phone) {
+      padding: 3px 0;
+      padding-left: 45px;
+      font-size: 18px;
+    }
+  }
+
+  &__item--speed::after,
+  &__item--delivery::after,
+  &__item--restorant::after {
+    @extend %pseudo;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 34px;
+    height: 34px;
+    @extend %background;
+  }
+
+
+  &__item--speed::after {
+    background-image: url("../images/sprite.svg#icon-timer");
+    filter: invert(69%) sepia(64%) saturate(5629%) hue-rotate(337deg) brightness(101%) contrast(101%);
+  }
+
+  &__item--delivery::after {
+    background-image: url("../images/sprite.svg#icon-delivery");
+    filter: invert(49%) sepia(26%) saturate(4842%) hue-rotate(173deg) brightness(103%) contrast(106%);
+  }
+
+  &__item--restorant::after {
+    background-image: url("../images/sprite.svg#icon-restorant");
+    filter: invert(23%) sepia(88%) saturate(4665%) hue-rotate(350deg) brightness(102%) contrast(103%);
+  }
+
+  &__box {
+    @extend %background;
+    background-size: contain;
+    width: 440px;
+    height: 585px;
+
+    @include r($desktop) {
+      position: absolute;
+      z-index: -1;
+      opacity: 15%;
+      left: 0;
+    }
+
+    @include r($tablet) {
+      height: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &__btn {
+    padding: 13px 32px;
+  }
+}
