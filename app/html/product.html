@@ -1,0 +1,21 @@
+@include("parts/_head.html", {
+  "pageTitle": "Product page"
+})
+
+  @include("parts/_header.html")
+
+  <main class="main">
+
+    @include("page-product/_product-breadcrumbs.html",{
+      "breadcrumbs-text": "Чизбургер с листьями салата"
+    })
+    
+    @include("page-product/_product.html")
+
+    @include("page-product/_recent.html")    
+
+  </main>
+
+  @include("parts/_footer.html")
+
+@include("parts/_footer-scripts.html")

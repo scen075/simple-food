@@ -1,0 +1,148 @@
+.recent {
+  margin-bottom: 60px;
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+
+    @include r($phone) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    max-width: 210px;
+    text-align: center;
+    height: 100%;
+  }
+
+  .product-card {
+    margin-right: 5px;
+    height: 300px;
+  }
+
+  &__btn-box {
+    max-width: 105px;
+  }
+
+  &__dots-box {
+    display: none;
+    height: 15px;
+    width: 75px;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 15px;
+    position: relative;
+
+    @include r($phone) {
+      display: flex;
+    }
+  }
+
+  &__arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid $gray;
+    padding-top: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+
+    use {
+      transition: fill 0.3s;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+    }
+
+    &:hover {
+      background-color: $lite-orange;
+      border-color: #FFAE94;
+
+      use {
+        fill: #FFAE94;
+      }
+    }
+
+    &:active {
+      background-color: $lite-orange;
+      border-color: $lite-orange;
+
+      use {
+        fill: $orange;
+      }
+    }
+  }
+
+  &__angle-arrow--next {
+    transform: rotate(180deg);
+  }
+
+  & .slider__arrow--prev {
+    margin-right: 20px;
+    padding-right: 2px;
+
+    @include r($phone) {
+      margin: 0;
+    }
+  }
+
+  & .slider__arrow--next {
+    padding-left: 5px;
+  }
+
+  & .slick-dots {
+    display: flex;
+    font-size: 0;
+
+    button {
+      height: 15px;
+      width: 15px;
+      background-color: $gray;
+      border-radius: 50%;
+    }
+
+    li {
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+
+  }
+
+  & .slick-disabled {
+    border: 3px solid #FF7A50;
+
+    use {
+      fill: #FF7A50;
+    }
+  }
+
+  & .slick-dots button {
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    &:active {
+      background-color: #FFAE94;
+    }
+
+    &:hover {
+      background-color: #FFF2ED;
+      box-shadow: 0 0 0 2px rgba(255, 122, 80, 0.7);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px #FF6838;
+    }
+  }
+
+  & .slick-active button {
+    background-color: #FF7A50;
+  }
+}
