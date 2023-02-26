@@ -1,0 +1,613 @@
+.product {
+
+  &__inner {
+    padding-bottom: 60px;
+    display: flex;
+    border-bottom: 1px solid #E4E4E4;
+
+    @include r($desktop) {
+      display: block;
+      padding-bottom: 30px;
+    }
+
+    @include r($tablet) {
+      padding-bottom: 45px;
+    }
+
+    .star {
+      margin-bottom: 25px;
+      padding: 0;
+    }
+  }
+
+  &__gallery {
+    padding: 75px 105px;
+    background-color: $white;
+    margin-right: 25px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 0 1px $gray;
+
+    @include r($desktop) {
+      margin-bottom: 30px;
+      margin-right: 0;
+      width: 100%;
+    }
+
+    @include r($phone) {
+      padding: 20px;
+    }
+  }
+
+  &__gallery-list {
+    max-width: 400px;
+    position: relative;
+
+    @include r($desktop) {
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__gallery-item {
+    max-width: 400px;
+  }
+
+  &__content {
+    @include r($desktop) {
+      max-width: 550px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include r($phone) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__price {
+    display: block;
+    @extend %rubik-500;
+    font-size: 25px;
+    line-height: 130%;
+    color: $dark-blue;
+    margin-bottom: 20px;
+  }
+
+  &__form {
+    margin-bottom: 30px;
+    display: flex;
+
+    @include r($phone) {
+      display: block;
+    }
+  }
+
+  &__form-btn {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+
+    svg {
+      margin-right: 14px;
+    }
+
+    &:focus use,
+    &:hover use,
+    &:active use {
+      stroke: $orange;
+    }
+
+    @include r($phone) {
+      padding: 13px 38px;
+    }
+  }
+
+  &__info-title {
+    display: block;
+    font-size: 24px;
+    line-height: 140%;
+    color: $dark-blue;
+    letter-spacing: 0.03em;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #E4E4E4;
+    margin-bottom: 20px;
+
+    @include r($tablet) {
+      font-size: 20px;
+    }
+
+    @include r($phone) {
+      font-size: 18px;
+    }
+  }
+
+  &__list {
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0.03em;
+    margin-bottom: 25px;
+
+    @include r($phone) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__link {
+    text-decoration: underline;
+  }
+
+  &__tabs {
+    padding-top: 30px;
+    max-width: 690px;
+    margin: 0 auto;
+  }
+
+  &__tabs-menu {
+    display: flex;
+    margin-bottom: 35px;
+    font-size: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+    padding: 5px 0;
+
+    @include r($phone) {
+      font-size: 20px;
+      padding-right: 60px;
+    }
+  }
+
+  &__tabs-link--active {
+    color: $orange;
+  }
+
+  &__menu-item {
+
+    &:not(:last-child) {
+      margin-right: 60px;
+    }
+  }
+
+  &__description-item {
+    line-height: 150%;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    @include r($tablet) {
+      font-size: 20px;
+    }
+
+    @include r($phone) {
+      font-size: 16px;
+    }
+  }
+
+  &__tabs-item {
+    display: none;
+  }
+
+  &__tabs-item--active {
+    display: block;
+  }
+
+  &__feature-item {
+    line-height: 150%;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__feature-title {
+    @extend %rubik-500;
+
+    @include r($tablet) {
+      font-size: 20px;
+
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+
+    @include r($phone) {
+      font-size: 16px;
+
+      &:not(:last-child) {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  &__reviews-quote {
+    display: block;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #E4E4E4;
+      margin-bottom: 25px;
+    }
+  }
+
+  &__reviews-title {
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0.03em;
+    margin-bottom: 30px;
+    color: $dark-blue;
+    @extend %rubik-500;
+  }
+
+  &__reviews-list {
+    margin-bottom: 60px;
+  }
+
+  &__reviews-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .star {
+      margin-left: auto;
+    }
+
+    @include r($phone) {
+      display: block;
+
+      .star {
+        margin: 0;
+      }
+    }
+  }
+
+  &__reviews-box {
+    display: flex;
+    align-items: center;
+
+    @include r($phone) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__reviews-img {
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    margin-right: 25px;
+  }
+
+  &__reviews-auther {
+    margin-bottom: 10px;
+    @extend %rubik-500;
+    color: $dark-gray;
+    line-height: 120%;
+  }
+
+  &__reviews-data {
+    color: $dark-gray;
+    font-size: 18px;
+    line-height: 130%;
+    letter-spacing: 0.03em;
+  }
+
+  &__reviews-text {
+    margin-bottom: 20px;
+
+    @include r($tablet) {
+
+      p {
+        font-size: 18px;
+      }
+    }
+
+    @include r($phone) {
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .slick-arrow {
+    width: 60px;
+    height: 60px;
+    font-size: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &::before {
+      @extend %pseudo;
+      @extend %background;
+      width: 19px;
+      height: 32px;
+      background-image: url("../images/sprite.svg#icon-angle-brackets");
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+  }
+
+  .slick-next {
+    right: -75px;
+
+    &::before {
+      filter: invert(22%) sepia(7%) saturate(2611%) hue-rotate(198deg) brightness(93%) contrast(92%);
+      transform: rotate(180deg) translate(50%, -50%);
+    }
+  }
+
+  .slick-prev {
+    left: -75px;
+  }
+
+  .jq-number {
+    padding: 0;
+    width: 160px;
+    height: 44px;
+    position: relative;
+    margin-right: 20px;
+
+    @include r($phone) {
+      margin-bottom: 15px;
+    }
+  }
+
+  .jq-number__field {
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
+    border-radius: 3px;
+    background-color: #FAEDED;
+  }
+
+  .jq-number__field input {
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px 5px;
+    border: none;
+    outline: none;
+    background: none;
+    @extend %rubik-400;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    color: $dark-blue;
+  }
+
+  .jq-number__spin {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 0 3px 3px 0;
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    cursor: pointer;
+    background-color: $orange;
+  }
+
+  .jq-number__spin.minus {
+    border-radius: 3px 0 0 3px;
+    left: 0;
+  }
+
+  .jq-number__spin.plus {
+    right: 0;
+  }
+
+  .jq-number__spin::after {
+    @extend %pseudo;
+    top: 12px;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+    @extend %background;
+    filter: invert(100%);
+  }
+
+  .jq-number__spin.plus::after {
+    background-image: url("../images/sprite.svg#icon-plus");
+  }
+
+  .jq-number__spin.minus::after {
+    background-image: url("../images/sprite.svg#icon-minus");
+  }
+
+}
+
+.fancybox-bg {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.fancybox-inner {
+  left: 100px;
+  right: 100px;
+  top: 50px;
+  bottom: 50px;
+  border-radius: 15px;
+  background-color: $white;
+}
+
+.fancybox-button {
+  background: none;
+  height: 60px;
+  width: 60px;
+}
+
+.fancybox-button--arrow_left {
+  margin-left: 80px;
+}
+
+.fancybox-button--arrow_right {
+  margin-right: 80px;
+}
+
+.fancybox-navigation .fancybox-button--arrow_left,
+.fancybox-navigation .fancybox-button--arrow_right {
+
+  svg {
+    transform: rotate(180deg);
+    color: #505050;
+  }
+}
+
+.fancybox-button:hover {
+  svg {
+    color: #505050;
+  }
+}
+
+.review {
+
+  &__span {
+    display: block;
+    color: $dark-gray;
+    line-height: 130%;
+    margin-bottom: 15px;
+  }
+
+  &__input {
+    background-color: $white;
+    border: 1px solid $gray;
+    border-radius: 5px;
+    width: 100%;
+    padding: 18px;
+    font-size: 16px;
+
+    &::placeholder {
+      font-size: 16px;
+      color: #C1C1C1;
+      transition: color 0.3s;
+    }
+
+    transition: border 0.3s,
+    box-shadow 0.3s;
+
+    &:focus {
+      box-shadow: 0 0 0 2px $orange;
+    }
+
+    &:hover::placeholder {
+      color: #363853;
+    }
+
+    @include r($phone) {
+      max-width: 100%;
+    }
+  }
+
+  &__label-star {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__star-span {
+    margin-right: 15px;
+  }
+
+  &__form-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+
+    @include r($phone) {
+      display: block;
+    }
+  }
+
+  &__textarea-label {
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    margin-right: 30px;
+
+    @include r($phone) {
+      max-width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  &__textarea {
+    max-width: 400px;
+    min-height: 175px;
+    width: 100%;
+    padding: 16px 18px;
+
+    @include r($phone) {
+      max-width: 100%;
+    }
+  }
+
+  &__box-right {
+    max-width: 260px;
+    width: 100%;
+
+    @include r($phone) {
+      max-width: 100%;
+    }
+  }
+
+  &__label-name {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &__checkbox-label {
+    display: block;
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  &__checkbox-input {
+    @extend %checkbox-hiden;
+    position: absolute;
+
+    &:checked+.review__checkbox {
+      @extend %background;
+      border: 1px solid $dark-blue;
+      background-image: url("../images/sprite.svg#icon-checked");
+      background-size: 12px;
+    }
+  }
+
+  &__checkbox {
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    border: 1px solid #c1c1c1;
+    border-radius: 3px;
+  }
+
+  &__checkbox-span {
+    display: block;
+    padding-left: 34px;
+  }
+
+  &__btn {
+    margin-bottom: 10px;
+
+    @include r($phone) {
+      padding: 12px 32px;
+    }
+  }
+}

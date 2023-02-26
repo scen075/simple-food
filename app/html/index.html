@@ -1,24 +1,26 @@
-@include("components/_head.html")
+@include("parts/_head.html", {
+  "pageTitle": "Home page"
+})
 
-  @include("components/_header.html")
+  @include("parts/_header.html")
 
   <main class="main">
 
-    @include("components/_hero.html")
+    @include("page-index/_hero.html")
 
-    @include("components/_popular-criteria.html")
+    @include("page-index/_popular-criteria.html")
 
-    @include("components/_features.html")
+    @include("page-index/_features.html")
 
-    @include("components/_restorant.html")
+    @include("page-index/_restorant.html")
 
-    @include("components/_reviews.html")
+    @include("page-index/_reviews.html")
 
-    @include("components/_app.html")
+    @include("parts/_app.html")
 
   </main>
 
-  @include("components/_footer.html")
+  @include("parts/_footer.html")
 
 
-@include("components/_footer-scripts.html")
+@include("parts/_footer-scripts.html")

@@ -28,7 +28,7 @@
       content: "";
       position: absolute;
       left: 0;
-      top: 9px;
+      top: 0;
       width: 24px;
       height: 24px;
       @extend %background;
@@ -42,10 +42,9 @@
     }
   }
 
-
   &__address::before {
     background-image: url("../images/icons/icon-location.svg");
-    top: 16px;
+    top: 7px;
   }
 
   &__link--email::before {

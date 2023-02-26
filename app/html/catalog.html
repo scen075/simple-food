@@ -1,21 +1,24 @@
-@include("components/_head.html")
+@include("parts/_head.html", {
+  "pageTitle": "Каталог товаров"
+})
 
-  @include("components/_header.html")
+  @include("parts/_header.html")
 
   <main class="main">
-    <h1 class="sr-only"></h1>
 
-    @include("components/_breadcrumbs.html")
+    @include("page-catalog/_breadcrumbs.html",{
+      "breadcrumbs-text": "Каталог товаров"
+    })
 
-    @include("components/_catalog.html")
+    @include("page-catalog/_catalog.html")
 
-    @include("components/_app.html")
+    @include("parts/_app.html")
 
-    @include("components/_promo.html")
+    @include("page-catalog/_promo.html")
     
   </main>
 
-  @include("components/_footer.html")
+  @include("parts/_footer.html")
 
 
-@include("components/_footer-scripts.html")
+@include("parts/_footer-scripts.html")

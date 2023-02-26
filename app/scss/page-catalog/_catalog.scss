@@ -189,30 +189,30 @@
         margin-bottom: 11px;
       }
 
-      &--active {
-        color: $orange;
-      }
-
       &:hover {
         color: $orange;
       }
-
-      &:focus .filter-category__text {
-        box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
-      }
-
-      &:active .filter-category__text {
-        text-shadow: 2px 2px 5px rgba(54, 56, 83, 0.5);
-      }
     }
 
-    &__text {
+    &__span {
       border-radius: 3px;
       transition: box-shadow 0.3s;
     }
 
     &__input {
       @extend %checkbox-hiden;
+
+      &:checked+.filter-category__span {
+        color: $orange;
+      }
+
+      &:focus .filter-category__span {
+        box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+      }
+
+      &:active .filter-category__span {
+        text-shadow: 2px 2px 5px rgba(54, 56, 83, 0.5);
+      }
     }
   }
 
