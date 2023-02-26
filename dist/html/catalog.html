@@ -1,0 +1,24 @@
+@include("parts/_head.html", {
+  "pageTitle": "Каталог товаров"
+})
+
+  @include("parts/_header.html")
+
+  <main class="main">
+
+    @include("page-catalog/_breadcrumbs.html",{
+      "breadcrumbs-text": "Каталог товаров"
+    })
+
+    @include("page-catalog/_catalog.html")
+
+    @include("parts/_app.html")
+
+    @include("page-catalog/_promo.html")
+    
+  </main>
+
+  @include("parts/_footer.html")
+
+
+@include("parts/_footer-scripts.html")
