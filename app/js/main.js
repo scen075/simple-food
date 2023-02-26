@@ -233,6 +233,14 @@ $(function () {
     $($(this).attr('href')).addClass('product__tabs-item--active')
   })
 
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 1) {
+      $('.header').addClass("fixed");
+    } else {
+      $('.header').removeClass("fixed");
+    }
+  });
+
 });
 
 var mixer = mixitup('.popular-criteria__content');
